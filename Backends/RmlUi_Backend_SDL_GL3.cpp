@@ -3,12 +3,6 @@
 #include "../Include/RmlUi/Core/Context.h"
 #include "../Include/RmlUi/Core/Core.h"
 
-#if defined RMLUI_PLATFORM_EMSCRIPTEN
-	#include <emscripten.h>
-#elif SDL_MAJOR_VERSION == 2 && !(SDL_VIDEO_RENDER_OGL)
-	#error "Only the OpenGL SDL backend is supported."
-#endif
-
 /**
     Custom render interface example for the SDL/GL3 backend.
 
@@ -41,7 +35,7 @@ Rml::RenderInterface* Backend::GetRenderInterface()
 
 bool Backend::ProcessEvents(Rml::Context* context, bool power_save)
 {
-	return false;//让程序可以自己退出
+	return false;
 }
 
 
