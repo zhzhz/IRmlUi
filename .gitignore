@@ -1,6 +1,6 @@
 # Primary CMake build target
-/Build/
-/build/
+/build/*
+!/build/.gitkeep
 
 # Primary CMake install target for development
 /Install/
