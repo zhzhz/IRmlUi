@@ -1,0 +1,4 @@
+#ifndef RMLUI_CORE_PLATFORM_H
+#define RMLUI_CORE_PLATFORM_H
+
+#endif
