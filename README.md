@@ -6,5 +6,11 @@ IRmlUi使用CMake作为项目管理，在Windows平台上使用Visual Studio Cod
 
 开发时，在Visual Studio Code中按F5会先编译后进入调试模式。
 
+使用前情先安装vcpkg到D:/prj目录，并安装依赖
+vcpkg install sdl2
+vcpkg install sdl2-image
+
 ## 开发进度
 v0.1版本，实现基本开发环境搭建，实现基本开发框架，主框架在Samples/dev/src/main.cpp。
+
+v0.1.1 配置SDL2依赖

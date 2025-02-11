@@ -7,10 +7,10 @@
             "request": "launch",
             "args": [],
             "stopAtEntry": false,
-            "externalConsole": false,
             "cwd": "${workspaceFolder}",
             "program": "${workspaceFolder}/build/Samples/dev/Debug/dev.exe",
-            "preLaunchTask": "cmake"
+            "preLaunchTask": "cmake build",
+			"console": "internalConsole"
         }
     ]
 }

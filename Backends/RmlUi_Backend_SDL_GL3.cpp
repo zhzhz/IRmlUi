@@ -2,6 +2,7 @@
 #include "RmlUi_Renderer_GL3.h"
 #include "../Include/RmlUi/Core/Context.h"
 #include "../Include/RmlUi/Core/Core.h"
+#include "RmlUi_Platform_SDL.h"
 
 /**
     Custom render interface example for the SDL/GL3 backend.
@@ -35,6 +36,13 @@ Rml::RenderInterface* Backend::GetRenderInterface()
 
 bool Backend::ProcessEvents(Rml::Context* context, bool power_save)
 {
+	//处理鼠标移动事件
+
+	//调用SDL库函数等待事件发生
+	int has_event = 0;
+	SDL_Event ev;
+	has_event = SDL_WaitEventTimeout(&ev, static_cast<int>(10.0 * 1000));
+
 	return false;
 }
 

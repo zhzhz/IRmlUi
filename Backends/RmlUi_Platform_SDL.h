@@ -1,0 +1,7 @@
+#ifndef RMLUI_BACKENDS_PLATFORM_SDL_H
+#define RMLUI_BACKENDS_PLATFORM_SDL_H
+
+#include <SDL.h>
+
+
+#endif
