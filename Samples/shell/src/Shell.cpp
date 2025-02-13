@@ -1,4 +1,4 @@
-#include "../include/Shell.h"
+﻿#include "../include/Shell.h"
 // #include "../include/PlatformExtensions.h"
 // #include "../include/ShellFileInterface.h"
 // #include <RmlUi/Core/Context.h>

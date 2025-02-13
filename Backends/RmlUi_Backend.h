@@ -1,4 +1,4 @@
-#ifndef RMLUI_BACKENDS_BACKEND_H
+﻿#ifndef RMLUI_BACKENDS_BACKEND_H
 #define RMLUI_BACKENDS_BACKEND_H
 
 #include "../Include/RmlUi/Core/Input.h"

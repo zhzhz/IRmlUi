@@ -1,4 +1,4 @@
-#ifndef RMLUI_CORE_VECTOR2_H
+﻿#ifndef RMLUI_CORE_VECTOR2_H
 #define RMLUI_CORE_VECTOR2_H
 
 //#include "Debug.h"

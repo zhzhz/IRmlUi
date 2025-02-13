@@ -7,7 +7,7 @@ target_sources(rmlui_backend_common_headers INTERFACE
 
 add_library(rmlui_backend_SDL_GL3 INTERFACE)
 target_sources(rmlui_backend_SDL_GL3 INTERFACE
-	#"${CMAKE_CURRENT_LIST_DIR}/RmlUi_Platform_SDL.cpp"
+	"${CMAKE_CURRENT_LIST_DIR}/RmlUi_Platform_SDL.cpp"
 	"${CMAKE_CURRENT_LIST_DIR}/RmlUi_Renderer_GL3.cpp"
 	"${CMAKE_CURRENT_LIST_DIR}/RmlUi_Backend_SDL_GL3.cpp"
 	"${CMAKE_CURRENT_LIST_DIR}/RmlUi_Platform_SDL.h"

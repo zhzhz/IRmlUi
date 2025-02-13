@@ -1,4 +1,4 @@
-#ifndef RMLUI_CORE_MATH_H
+﻿#ifndef RMLUI_CORE_MATH_H
 #define RMLUI_CORE_MATH_H
 
 #include "Header.h"

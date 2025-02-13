@@ -1,4 +1,4 @@
-#ifndef RMLUI_BACKENDS_RENDERER_GL3_H
+﻿#ifndef RMLUI_BACKENDS_RENDERER_GL3_H
 #define RMLUI_BACKENDS_RENDERER_GL3_H
 
 #include "../Include/RmlUi/Core/RenderInterface.h"

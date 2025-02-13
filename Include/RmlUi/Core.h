@@ -1,4 +1,4 @@
-#ifndef RMLUI_CORE_H
+﻿#ifndef RMLUI_CORE_H
 #define RMLUI_CORE_H
 
 // #include "Core/Animation.h"

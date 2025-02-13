@@ -1,4 +1,4 @@
-
+﻿
 #ifndef RMLUI_CORE_TRAITS_H
 #define RMLUI_CORE_TRAITS_H
 

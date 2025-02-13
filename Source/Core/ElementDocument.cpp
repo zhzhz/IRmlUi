@@ -1,4 +1,4 @@
-#include "../../Include/RmlUi/Core/ElementDocument.h"
+﻿#include "../../Include/RmlUi/Core/ElementDocument.h"
 
 namespace Rml {
 ElementDocument::ElementDocument(const String& tag) : Element(tag)

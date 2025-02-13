@@ -1,4 +1,4 @@
-#ifndef RMLUI_CORE_INPUT_H
+﻿#ifndef RMLUI_CORE_INPUT_H
 #define RMLUI_CORE_INPUT_H
 
 namespace Rml {

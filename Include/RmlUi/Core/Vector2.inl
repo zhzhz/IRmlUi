@@ -1,4 +1,4 @@
-namespace Rml {
+﻿namespace Rml {
 
 template <typename Type>
 Vector2<Type>::Vector2() : x{}, y{}

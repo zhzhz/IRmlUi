@@ -1,4 +1,4 @@
-#include "../../Include/RmlUi/Core/Math.h"
+﻿#include "../../Include/RmlUi/Core/Math.h"
 #include "../../Include/RmlUi/Core/Types.h"
 #include <math.h>
 #include <stdlib.h>
