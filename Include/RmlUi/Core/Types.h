@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "Vector2.h"
+// #include "Event.h"
 
 namespace Rml {
 
@@ -19,13 +20,14 @@ enum class Character : char32_t { Null, Replacement = 0xfffd }; // Unicode code 
 enum class BoxArea { Margin, Border, Padding, Content, Auto };
 
 class Element;
+class Event;
 
 // Color and linear algebra
 
 using Vector2i = Vector2<int>;
 using Vector2f = Vector2<float>;
 
-
+using EventPtr = UniqueReleaserPtr<Event>;
 
 } // namespace std
 

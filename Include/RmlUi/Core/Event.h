@@ -44,12 +44,30 @@ struct EventSpecification;
 enum class EventPhase { None, Capture = 1, Target = 2, Bubble = 4 };
 enum class DefaultActionPhase { None, Target = (int)EventPhase::Target, TargetAndBubble = ((int)Target | (int)EventPhase::Bubble) };
 
-/**
-    An event that propagates through the element hierarchy. Events follow the DOM3 event specification. See
-    http://www.w3.org/TR/DOM-Level-3-Events/events.html.
+class RMLUICORE_API Event : public ScriptInterface {
+public:
+	/// Constructor
+	//Event();
+	/// Constructor
+	/// @param[in] target The target element of this event
+	/// @param[in] id The event id
+	/// @param[in] type The event type
+	/// @param[in] parameters The event parameters
+	/// @param[in] interruptible Can this event have is propagation stopped?
+	Event(Element* target, EventId id);
+	/// Destructor
+	virtual ~Event();
 
-    @author Lloyd Weehuizen
- */
+	EventId GetId() const;
+
+private:
+	EventId id = EventId::Invalid;
+	EventInstancer* instancer = nullptr;
+
+	friend class Rml::Factory;
+
+	void Release() override;
+};
 }
 
 #endif

@@ -28,5 +28,16 @@ using UniquePtr = std::unique_ptr<T>;
 
 template <typename T>
 using SmallOrderedSet = itlib::flat_set<T>;
+
+template <typename T>
+class Releaser;
+template <typename T>
+using UniqueReleaserPtr = std::unique_ptr<T, Releaser<T>>;
+
+template <typename T, typename... Args>
+inline UniquePtr<T> MakeUnique(Args&&... args)
+{
+	return std::make_unique<T, Args...>(std::forward<Args>(args)...);
+}
 }
 #endif

@@ -8,7 +8,8 @@ namespace Rml {
 
 class RMLUICORE_API ScriptInterface : public Releasable {
 public:
-	RMLUI_RTTI_Define(ScriptInterface)
+	//RMLUI_RTTI_Define(ScriptInterface)
+	ScriptInterface();
 
 	virtual ~ScriptInterface() {}
 

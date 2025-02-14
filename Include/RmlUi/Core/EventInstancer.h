@@ -26,55 +26,41 @@
  *
  */
 
-#include "EventDispatcher.h"
-#include "../../Include/RmlUi/Core/Element.h"
-#include "../../Include/RmlUi/Core/Event.h"
-//#include "../../Include/RmlUi/Core/EventListener.h"
-//#include "../../Include/RmlUi/Core/Factory.h"
-#include "EventSpecification.h"
-#include <algorithm>
-#include <limits>
-#include "../../Include/RmlUi/Core/Factory.h"
+#ifndef RMLUI_CORE_EVENTINSTANCER_H
+#define RMLUI_CORE_EVENTINSTANCER_H
+
+#include "Header.h"
+#include "Traits.h"
+#include "Types.h"
+#include "ID.h"
 
 namespace Rml {
 
-bool operator==(EventListenerEntry a, EventListenerEntry b)
-{
-	return a.id == b.id && a.in_capture_phase == b.in_capture_phase && a.listener == b.listener;
-}
-bool operator!=(EventListenerEntry a, EventListenerEntry b)
-{
-	return !(a == b);
-}
+class Element;
+class Event;
 
-struct CompareId {
-	bool operator()(EventListenerEntry a, EventListenerEntry b) const { return a.id < b.id; }
+/**
+    Abstract instancer interface for instancing events. This is required to be overridden for scripting systems.
+
+    @author Lloyd Weehuizen
+ */
+
+class RMLUICORE_API EventInstancer : public Releasable {
+public:
+	virtual ~EventInstancer();
+
+	/// Instance an event object.
+	/// @param[in] target Target element of this event.
+	/// @param[in] id ID of this event.
+	/// @param[in] type Name of this event type.
+	/// @param[in] parameters Additional parameters for this event.
+	/// @param[in] interruptible If the event propagation can be stopped.
+	virtual EventPtr InstanceEvent(Element* target, EventId id) = 0;
+
+	/// Releases an event instanced by this instancer.
+	/// @param[in] event The event to release.
+	virtual void ReleaseEvent(Event* event) = 0;
 };
-struct CompareIdPhase {
-	bool operator()(EventListenerEntry a, EventListenerEntry b) const
-	{
-		return std::tie(a.id, a.in_capture_phase) < std::tie(b.id, b.in_capture_phase);
-	}
-};
-
-//EventDispatcher::EventDispatcher(Element* _element) : element(_element) {}
-
-
-
-//事件发生后会调用这个函数，分发事件
-bool EventDispatcher::DispatchEvent(Element* target_element, const EventId id, const String& type,
-	const bool interruptible, const bool bubbles, const DefaultActionPhase default_action_phase)
-{
-
-	//创建事件对象
-	EventPtr event = Factory::InstanceEvent(target_element, id);
-
-	//调用元素的默认处理函数
-	target_element->ProcessDefaultAction(*event);
-
-	return true;
-}
-
-
 
 } // namespace Rml
+#endif

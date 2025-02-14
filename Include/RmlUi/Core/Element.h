@@ -5,6 +5,7 @@
 #include "ScriptInterface.h"
 #include "ObserverPtr.h"
 #include "ID.h"
+#include "Event.h"
 
 namespace Rml {
 
@@ -20,6 +21,10 @@ public:
 	Element* GetParentNode() const;
 
 	bool DispatchEvent(EventId id);
+
+	virtual void ProcessDefaultAction(Event& event);
+
+	void SetPseudoClass(const String& pseudo_class, bool activate);
 
 private:
 	// Parent element.

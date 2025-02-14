@@ -25,6 +25,21 @@ protected:
 	friend class Rml::ReleaserBase;
 };
 
+class RMLUICORE_API ReleaserBase {
+protected:
+	void Release(Releasable* target) const { target->Release(); }
+};
+
+template <typename T>
+class RMLUICORE_API Releaser : public ReleaserBase {
+public:
+	void operator()(T* target) const
+	{
+		static_assert(std::is_base_of<Releasable, T>::value, "Rml::Releaser can only operate with classes derived from ::Rml::Releasable.");
+		Release(static_cast<Releasable*>(target));
+	}
+};
+
 
 }
 

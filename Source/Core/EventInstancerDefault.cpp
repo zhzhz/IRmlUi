@@ -26,55 +26,28 @@
  *
  */
 
-#include "EventDispatcher.h"
-#include "../../Include/RmlUi/Core/Element.h"
+#include "EventInstancerDefault.h"
 #include "../../Include/RmlUi/Core/Event.h"
-//#include "../../Include/RmlUi/Core/EventListener.h"
-//#include "../../Include/RmlUi/Core/Factory.h"
-#include "EventSpecification.h"
-#include <algorithm>
-#include <limits>
-#include "../../Include/RmlUi/Core/Factory.h"
 
 namespace Rml {
 
-bool operator==(EventListenerEntry a, EventListenerEntry b)
+EventInstancerDefault::EventInstancerDefault() {}
+
+EventInstancerDefault::~EventInstancerDefault() {}
+
+EventPtr EventInstancerDefault::InstanceEvent(Element* target, EventId id)
 {
-	return a.id == b.id && a.in_capture_phase == b.in_capture_phase && a.listener == b.listener;
-}
-bool operator!=(EventListenerEntry a, EventListenerEntry b)
-{
-	return !(a == b);
-}
-
-struct CompareId {
-	bool operator()(EventListenerEntry a, EventListenerEntry b) const { return a.id < b.id; }
-};
-struct CompareIdPhase {
-	bool operator()(EventListenerEntry a, EventListenerEntry b) const
-	{
-		return std::tie(a.id, a.in_capture_phase) < std::tie(b.id, b.in_capture_phase);
-	}
-};
-
-//EventDispatcher::EventDispatcher(Element* _element) : element(_element) {}
-
-
-
-//事件发生后会调用这个函数，分发事件
-bool EventDispatcher::DispatchEvent(Element* target_element, const EventId id, const String& type,
-	const bool interruptible, const bool bubbles, const DefaultActionPhase default_action_phase)
-{
-
-	//创建事件对象
-	EventPtr event = Factory::InstanceEvent(target_element, id);
-
-	//调用元素的默认处理函数
-	target_element->ProcessDefaultAction(*event);
-
-	return true;
+	return EventPtr(new Event(target, id));
 }
 
+void EventInstancerDefault::ReleaseEvent(Event* event)
+{
+	delete event;
+}
 
+void EventInstancerDefault::Release()
+{
+	delete this;
+}
 
 } // namespace Rml

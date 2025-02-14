@@ -1,6 +1,7 @@
 ﻿#include "../../Include/RmlUi/Core/SystemInterface.h"
 #include "../../Include/RmlUi/Core/RenderInterface.h"
 #include "../../Include/RmlUi/Core/Context.h"
+#include "../../Include/RmlUi/Core/Factory.h"
 
 
 namespace Rml {
@@ -13,8 +14,10 @@ void SetRenderInterface(RenderInterface* _render_interface)
 {
 }
 
+//初始化工厂
 bool Initialise()
 {
+	Factory::Initialise();
 	return true;
 }
 

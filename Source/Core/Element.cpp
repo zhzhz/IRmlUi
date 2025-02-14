@@ -33,4 +33,22 @@ bool Element::DispatchEvent(EventId id)
 	//return true;
 }
 
+//元素的默认事件处理函数
+void Element::ProcessDefaultAction(Event& event)
+{
+	switch (event.GetId())
+	{
+	case EventId::Mouseover: SetPseudoClass("hover", true); break;
+	case EventId::Mouseout: SetPseudoClass("hover", false); break;
+
+	default: break;
+	}
+}
+
+//设置元素的伪类状态
+void Element::SetPseudoClass(const String& pseudo_class, bool activate)
+{
+
+}
+
 }

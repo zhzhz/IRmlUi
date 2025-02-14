@@ -14,3 +14,5 @@ vcpkg install sdl2-image
 v0.1版本，实现基本开发环境搭建，实现基本开发框架，主框架在Samples/dev/src/main.cpp。
 
 v0.1.1 配置SDL2依赖
+
+v0.1.2 元素可以接收到hover事件
